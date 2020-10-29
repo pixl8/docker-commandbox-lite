@@ -2,10 +2,11 @@
 
 ## Overview
 
-This image is nothing more than Alpine linux with OpenJDK 11 and Commandbox Lite. Its intended purpose is as a base image to run basic box commands for workflows such as Github Actions. e.g.
+This image is nothing more than Alpine linux with OpenJDK 11, Commandbox Lite and bare minimum packages for running Commanxbox utility commands. Its intended purpose is as a base image to run basic box commands for workflows such as Github Actions. e.g.
 
 * Publish a package
 * Install dependencies
+* Run a test suite
 * Other commands you may write in cfml
 
 ## License
