@@ -6,7 +6,7 @@ LABEL repository "https://github.com/pixl8/docker-commandbox-lite"
 ENV COMMANDBOX_VERSION 5.1.1
 ENV COMMANDBOX_HOME=/usr/lib/CommandBox
 
-RUN apk update && apk add curl gettext && \
+RUN apk update && apk add curl gettext bash && \
     rm -f /var/cache/apk/*
 
 RUN curl -k  -o /usr/bin/box -location "https://downloads.ortussolutions.com/ortussolutions/commandbox/${COMMANDBOX_VERSION}/box-light" && \
