@@ -27,7 +27,7 @@ RUN curl -k  -o /usr/bin/box -location "https://downloads.ortussolutions.com/ort
 COPY ServerEngineService.cfc ${COMMANDBOX_HOME}/cfml/system/services/ServerEngineService.cfc
 
 RUN box install commandbox-cfconfig && \
-    cd $COMMANDBOX_HOME/cfml/system/modules_app/testbox-commands && box install testbox
+    cd $COMMANDBOX_HOME/cfml/system/modules_app/testbox-commands && box install testbox@be
 
 RUN box artifacts clean --force && \
     rm -rf $COMMANDBOX_HOME/temp/* && \
