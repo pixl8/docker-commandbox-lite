@@ -24,6 +24,8 @@ RUN curl -k  -o /usr/bin/box -location "https://downloads.ortussolutions.com/ort
     rm -rf $COMMANDBOX_HOME/cfml/system/modules/cfscriptme-command && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules/cb-module-template
 
+COPY ServerEngineService.cfc ${COMMANDBOX_HOME}/cfml/system/services/ServerEngineService.cfc
+
 RUN box install commandbox-cfconfig && \
     cd $COMMANDBOX_HOME/cfml/system/modules_app/testbox-commands && box install testbox
 
