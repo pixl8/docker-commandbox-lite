@@ -14,7 +14,7 @@ RUN curl -k  -o /usr/bin/box -location "https://downloads.ortussolutions.com/ort
     echo "commandbox_home=${COMMANDBOX_HOME}" > /usr/bin/commandbox.properties && \
     echo "Installed $( box version )" && \
     curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/esapi-extension-2.1.0.18.lex https://ext.lucee.org/esapi-extension-2.1.0.18.lex && \
-    curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/pdf-extension-1.0.0.80.lex https://ext.lucee.org/pdf-extension-1.0.0.80.lex && \
+    curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/lucee.image.extension-1.0.0.35.lex https://ext.lucee.org/lucee.image.extension-1.0.0.35.lex && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules_app/coldbox-commands && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules_app/contentbox-commands && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules_app/cachebox-commands && \
