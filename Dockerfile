@@ -5,6 +5,7 @@ LABEL repository "https://github.com/pixl8/docker-commandbox-lite"
 
 ENV COMMANDBOX_VERSION 5.1.1
 ENV COMMANDBOX_HOME=/usr/lib/CommandBox
+ENV TESTBOX_VERSION=be
 
 RUN apk update && apk add curl gettext bash && \
     rm -f /var/cache/apk/*
@@ -27,7 +28,7 @@ RUN curl -k  -o /usr/bin/box -location "https://downloads.ortussolutions.com/ort
 COPY ServerEngineService.cfc ${COMMANDBOX_HOME}/cfml/system/services/ServerEngineService.cfc
 
 RUN box install commandbox-cfconfig && \
-    cd $COMMANDBOX_HOME/cfml/system/modules_app/testbox-commands && box install testbox@be
+    cd $COMMANDBOX_HOME/cfml/system/modules_app/testbox-commands && box install testbox@${TESTBOX_VERSION}
 
 RUN box artifacts clean --force && \
     rm -rf $COMMANDBOX_HOME/temp/* && \
