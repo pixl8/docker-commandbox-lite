@@ -1,19 +1,21 @@
-FROM adoptopenjdk/openjdk11:jdk-11.0.6_10-alpine-slim
+FROM foundeo/minibox:2020.04
+
+## This really is some simple extension to
+## Pete Freitag's excellent work on minibox:
+## https://github.com/foundeo/minibox/
+##
+## It adds some essentials for running various
+## box related Github
 
 LABEL maintainer "Dominic Watson <dominic.watson@pixl8.co.uk>"
 LABEL repository "https://github.com/pixl8/docker-commandbox-lite"
 
-ENV COMMANDBOX_VERSION 5.1.1
-ENV COMMANDBOX_HOME=/usr/lib/CommandBox
+ENV COMMANDBOX_HOME=/root/.CommandBox
 
-RUN apk update && apk add curl gettext bash && \
+RUN apk update && apk add curl gettext && \
     rm -f /var/cache/apk/*
 
-RUN curl -k  -o /usr/bin/box -location "https://downloads.ortussolutions.com/ortussolutions/commandbox/${COMMANDBOX_VERSION}/box-light" && \
-    chmod 755 /usr/bin/box && \
-    echo "commandbox_home=${COMMANDBOX_HOME}" > /usr/bin/commandbox.properties && \
-    echo "Installed $( box version )" && \
-    curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/esapi-extension-2.1.0.18.lex https://ext.lucee.org/esapi-extension-2.1.0.18.lex && \
+RUN curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/esapi-extension-2.1.0.18.lex https://ext.lucee.org/esapi-extension-2.1.0.18.lex && \
     curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/lucee.image.extension-1.0.0.35.lex https://ext.lucee.org/lucee.image.extension-1.0.0.35.lex && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules_app/coldbox-commands && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules_app/contentbox-commands && \
@@ -35,5 +37,3 @@ RUN box artifacts clean --force && \
     rm -rf $COMMANDBOX_HOME/cfml/system/mdCache/* && \
     rm -rfv $COMMANDBOX_HOME/cfml/system/config/server-icons/*.* && \
     rm -rf $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/felix-cache/*
-
-
