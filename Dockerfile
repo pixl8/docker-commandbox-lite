@@ -26,8 +26,6 @@ RUN curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/esapi-extension
     rm -rf $COMMANDBOX_HOME/cfml/system/modules/cfscriptme-command && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules/cb-module-template
 
-COPY ServerEngineService.cfc ${COMMANDBOX_HOME}/cfml/system/services/ServerEngineService.cfc
-
 RUN box install commandbox-cfconfig && \
     cd $COMMANDBOX_HOME/cfml/system/modules_app/testbox-commands && box install testbox@be
 
