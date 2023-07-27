@@ -17,6 +17,7 @@ RUN apk update && apk add curl gettext && \
 
 RUN curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/esapi-extension.lex https://ext.lucee.org/esapi-extension-2.2.4.13.lex && \
     curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/lucee.image.extension.lex https://ext.lucee.org/lucee.image.extension-1.0.0.51.lex && \
+    curl -o $COMMANDBOX_HOME/engine/cfml/cli/lucee-server/deploy/mysql.lex https://ext.lucee.org/com.mysql.cj-8.0.33.lex && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules_app/coldbox-commands && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules_app/contentbox-commands && \
     rm -rf $COMMANDBOX_HOME/cfml/system/modules_app/cachebox-commands && \
